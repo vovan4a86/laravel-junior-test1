@@ -25,13 +25,14 @@
                 error.innerHTML = 'Заполните все обязательные поля';
             } else {
                 const data = new FormData(form);
-                axios.post('http://127.0.0.1:8000/feedbacks', data)
+                axios.post('/feedbacks', data)
                     .then(response => {
                         if (response.status === 201) {
                             window.location.href = '/success';
                         }
                     })
                     .catch(err => {
+                        error.innerHTML = 'Ошибка отправки данных на сервер!';
                         console.log('Server validation error! ', err)
                     })
             }

@@ -33,7 +33,7 @@
         </ul>
         <hr>
         <h6>Свой отзыв уже оставили:</h6>
-        @if($feedbacks)
+        @if( count($feedbacks) > 0 )
             <ul>
             @foreach($feedbacks as $fb)
                 <li class="list-unstyled">
@@ -42,7 +42,7 @@
             @endforeach
             </ul>
         @else
-            <p> Пока никого </p>
+            <p class="fst-italic"> ...пока никто </p>
         @endif
     </div>
 @endsection
