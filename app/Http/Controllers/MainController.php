@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class MainController extends Controller {
 
-    public function index() {
-        return view('fball');
-    }
-
     public function create() {
         return view('feedback');
     }
@@ -23,9 +19,10 @@ class MainController extends Controller {
 
         if($validated) {
             Feedback::create($request->all());
-
             mail('admin@mail.ru', 'submit ok', 'Feedback added!');
-            return response()->json( 'created', 201);
+            return response()->json( 'feedback created', 201);
+        } else {
+            return response()->json( 'error', 400);
         }
     }
 }

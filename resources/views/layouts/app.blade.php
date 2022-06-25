@@ -4,38 +4,32 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>@yield('title')</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <style>
-        body {
+    <style>body {
             font-family: 'Nunito', sans-serif;
-        }
-    </style>
+        }</style>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body>
-<header>
-    <div class="container">
-        <div class="py-5 d-flex justify-content-around align-items-center">
-            <div class="logo">
-                Feedbacks
-            </div>
-            <div class="menu">
-                <a href="/">Главная</a>
-                <a href="/feedbacks/create">Оставить отзыв</a>
-            </div>
+<div class="wrapper d-flex flex-column vh-100">
+    <header class="bg-dark opacity-75">
+        @include('layouts.header')
+    </header>
+
+        <div class="container flex-grow-1">
+            @yield('content')
         </div>
-    </div>
-</header>
-<div class="container">
-    <h1 class="text-info">Feedbacks all</h1>
 
+    <footer class="bg-dark opacity-75">
+        @include('layouts.footer')
+    </footer>
 </div>
-
 </body>
 </html>
+
