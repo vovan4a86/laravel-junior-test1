@@ -19,7 +19,8 @@ class MainController extends Controller {
 
         if($validated) {
             Feedback::create($request->all());
-            mail('admin@mail.ru', 'submit ok', 'Feedback added!');
+            $name = $request->get('name');
+            mail('vovan4a86@mail.ru', 'У вас новый отзыв', "Пользователь $name оставил(а) новый отзыв.");
             return response()->json( 'feedback created', 201);
         } else {
             return response()->json( 'error', 400);
